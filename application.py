@@ -25,10 +25,9 @@ def regressionprediction():
         DC=float(request.form.get('DC'))
         ISI=float(request.form.get('ISI'))
         BUI=float(request.form.get('BUI'))
-        FWI=float(request.form.get('FWI'))
         Classes=(request.form.get('Classes'))
         Region=(request.form.get('Region'))
-        newdata=[[temp,RH,Ws,Rain,FFMC,DMC,ISI,BUI,FWI,Classes,Region]]
+        newdata=[[temp,RH,Ws,Rain,FFMC,DMC,DC,ISI,BUI,Classes,Region]]
         newdata_scaled=scaler.transform(newdata)
         result=ridgeregressor.predict(newdata_scaled)
         return render_template('index.html',result=result)
