@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 300px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 50%;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 4px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Values</h2>
+    <form action="/predict" method="post">
+        <label>Temperature:</label><input type="text" name="Temperature"><br><br>
+        <label>RH</label><input type="text" name="RH"><br><br>
+        <label>Rain</label><input type="text" name="Rain"><br><br>
+        <label>Ws</label><input type="text" name="Ws"><br><br>
+        <label>FFMC</label><input type="text" name="FFMC"><br><br>
+        <label>DMC</label><input type="text" name="DMC"><br><br>
+        <label>DC</label><input type="text" name="DC"><br><br>
+        <label>ISI</label><input type="text" name="ISI"><br><br>
+        <label>BUI</label><input type="text" name="BUI"><br><br>
+        <label>FWI</label><input type="text" name="FWI"><br><br>
+        <label>Classes</label><input type="text" name="Classes"><br><br>
+        <label>Region</label><input type="text" name="Region"><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+        <h3>Prediction Result: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
